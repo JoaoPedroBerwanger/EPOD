@@ -13,7 +13,7 @@ public class Main {
             new Livro("Fahrenheit 451", "Ray Bradbury", 1953, 4.6, 35.0)
         };
 
-       Arrays.sort(livros);
+       Arrays.sort(livros);      
        System.out.println("Ordenados por título (ordem crescente):"); 
        for (Livro livro : livros) {
     	   System.out.println(livro);
