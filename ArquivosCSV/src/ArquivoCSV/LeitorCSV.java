@@ -8,8 +8,8 @@ import java.util.List;
 
 public class LeitorCSV {
 	
-	public static List<Conta> lerArquivo(String caminhoArq) {
-        List<Conta> contas = new ArrayList<>();
+	public static List<Filme> lerArquivo(String caminhoArq) {
+        List<Filme> filmes = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArq))) {
             String linha;
@@ -20,13 +20,23 @@ public class LeitorCSV {
             // Lendo os registros
             while ((linha = br.readLine()) != null) {
                 String[] campos = linha.split(",");
-                Conta conta = new Conta(campos[0], campos[1], campos[2], Double.parseDouble(campos[3]));
-                contas.add(conta);
+                Filme filme = new Filme(
+                		campos[0], 
+                		campos[1], 
+                		Integer.parseInt(campos[2]), 
+                		campos[3], 
+                		campos[4], 
+                		Integer.parseInt(campos[5]), 
+                		Double.parseDouble(campos[6]), 
+                		Double.parseDouble(campos[7]), 
+                		Double.parseDouble(campos[8]));
+                
+                filmes.add(filme);
             }
         } 
         catch (IOException e) {
             e.printStackTrace();
         }
-        return contas;
+        return filmes;
     }
 }
