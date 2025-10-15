@@ -1,3 +1,5 @@
+package ArquivoCSV;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,8 +8,8 @@ import java.util.List;
 
 public class LeitorCSV {
 	
-	public static List<Acao> lerArquivo(String caminhoArq) {
-        List<Acao> acao = new ArrayList<>();
+	public static List<Participante> lerArquivo(String caminhoArq) {
+        List<Participante> participantes = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminhoArq))) {
             String linha;
@@ -18,17 +20,17 @@ public class LeitorCSV {
             // Lendo os registros
             while ((linha = br.readLine()) != null) {
                 String[] campos = linha.split(",");
-                Acao acoes = new Acao(
-                		campos[0], 
+                Participante participante = new Participante(
+                		Integer.parseInt(campos[0]), 
                 		campos[1] 
                 		);
                 
-                acao.add(acoes);
+                participantes.add(participante);
             }
         } 
         catch (IOException e) {
             e.printStackTrace();
         }
-        return acao;
+        return participantes;
     }
 }

@@ -7,6 +7,7 @@ import java.util.Stack;
 
 public class Main {
 
+	@SuppressWarnings("unchecked")
 	public static void exibeAcoes(List<Acao> acoes) {
 
 		Stack<String> pilhaAcoes = new Stack<>();
